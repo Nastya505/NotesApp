@@ -78,9 +78,12 @@
 }
 
 .note-preview {
+  display: flex;
+  flex-direction: column;
   border-top:1px solid var(--color-border);
   padding: 15px;
   padding-inline: 20px;
+  gap:5px;
 }
 
 .note-preview__title {
@@ -103,4 +106,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.note-preview__date{
+  color: var(--color-light);
+  font-size: var(--fs-small);
+  letter-spacing: .1em;
+}
