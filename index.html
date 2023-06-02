@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NotesApp</title>
+  <title>NoteApp</title>
 
   <!-- LINKS TO GOOGLEFONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,70 +15,62 @@
   <!-- LINKS TO CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="page">
-
-  <div class="sidebar-wrapper">
-    <div class="sidebar">
-      <div class="search-form">
-        <input type="search" name="" id="" class="search-form__input" placeholder="Search">
-        <button class="tag-button">Newer first</button>
-      </div>
-      <div class="notes-preview">
-        <div class="note-preview">
-          <h3 class="note-preview__title">Note title dkdjkd kdjd kj dkfjd kjdk kjk kjd d jfkd jkdf kdjf k jkdf dkfj kj dfk</h3>
-          <p class="note-preview__text">Some text from note jdkfjd fk dkfjd k kdjf dkfj djf dkjf dk djfk dfj </p>
-          <p class="note-preview__date">02.05.2023</p>
+<body>
+  <div class="page" id="page">
+    <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <div class="sidebar">
+        <div class="search-form">
+          <input type="search" name="" id="search-input" class="search-form__input" placeholder="Search">
         </div>
-        <div class="note-preview">
-          <h3 class="note-preview__title">Note title</h3>
-          <p class="note-preview__text">Some text from note</p>
-          <p class="note-preview__date">02.05.2023</p>
+        <div class="notes-preview" id="notes-preview"></div>
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="main-menu">
+        <div class="main-menu__left">
+          <button class="button button_active" id="menu-btn">
+            <span class="material-symbols-outlined">
+              menu
+            </span>
+          </button>
+        </div>
+        <div class="main-menu__title">
+          <div class="title">NotesApp</div>
+        </div>
+        <div class="main-menu__right">
+          <button class="button" id="add-note">
+            <span class="material-symbols-outlined">
+              add_box
+            </span>
+          </button>
+          <button class="button" id="main-menu-additional-btn">
+            <span class="material-symbols-outlined main-menu-additional-btn-icon" id="main-menu-additional-btn-icon">
+              arrow_forward_ios
+            </span>
+          </button>
+          <div class="main-menu-additional" id="main-menu-additional">
+            <button class="button" id="theme-btn">
+              <span class="material-symbols-outlined">
+                brightness_4
+              </span>
+            </button>
+            <button class="button button_danger" id="btn-danger">
+              <span class="material-symbols-outlined">
+                delete
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note">
+          <h1 class="note__title" id="note-title" contenteditable="true"></h1>
+          <div class="note__content" id="note-content" contenteditable="true"></div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="content-wrapper">
-    <div class="main-menu">
-      <div class="main-menu__left">
-        <button class="button">
-          <span class="material-symbols-outlined">
-          menu
-          </span>
-        </button>
-      </div>
-      <div class="main-menu__title">
-        <div class="title">NotesApp</div>
-      </div>
-      <div class="main-menu__right">
-        <button class="button">
-          <span class="material-symbols-outlined">
-          add_box
-          </span>
-        </button>
-        <button class="button">
-          <span class="material-symbols-outlined">
-          arrow_forward_ios
-          </span>
-        </button>
-        <button class="button">
-          <span class="material-symbols-outlined">
-          brightness_4
-          </span>
-        </button>
-        <button class="button button_danger">
-          <span class="material-symbols-outlined">
-          delete
-          </span>
-        </button>
-      </div>
-
-    </div>
-    <div class="note">
-      <h1 class="note__title" contenteditable="true">Title</h1>
-      <div class="note__content" contenteditable="true">text</div>
-    </div>
-  </div>
-
+  <script src="js/main.js" type="module"></script>
 </body>
 </html>
