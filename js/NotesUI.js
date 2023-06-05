@@ -14,6 +14,24 @@ export default class NotesUI {
     this.noteContent = this.root.querySelector("#note-content");
     this.searchInput = this.root.querySelector("#search-input");
 
+
+    this.noteTitle.addEventListener("paste", function(event){
+      event.preventDefault();
+      var clipboardData = event.clipboardData;
+      var pasteData = clipboardData.getData('text/plain');
+      var plainText = pasteData.replace("/<\/?[^>]+(>|$)/g", "");
+      document.execCommand("insertText", false, plainText);
+    });
+
+    this.noteContent.addEventListener("paste", function(event){
+      event.preventDefault();
+      var clipboardData = event.clipboardData;
+      var pasteData = clipboardData.getData('text/plain');
+      var plainText = pasteData.replace("/<\/?[^>]+(>|$)/g", "");
+      document.execCommand("insertText", false, plainText);
+    });
+    
+
     this.addNoteBtn.addEventListener("click", () => {
       this.createNote();
     });
@@ -108,8 +126,6 @@ export default class NotesUI {
   createNote() {
     const createdNoteId = this.notesData.createNote();
     this.activeNoteId = createdNoteId;
-    console.log(this.activeNoteId)
-
     this.renderListNotes();
     this.renderNote();
   }
@@ -119,9 +135,7 @@ export default class NotesUI {
     
     this.noteContent.innerHTML = ``;
     this.noteTitle.innerHTML = ``;
-
     
-
     this.renderListNotes();
   }
 
@@ -136,5 +150,4 @@ export default class NotesUI {
     this.notesData.updateNote(newNote);
     this.renderListNotes();
   }
-
 }

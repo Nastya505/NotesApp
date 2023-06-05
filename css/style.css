@@ -7,6 +7,9 @@
   box-sizing: border-box;
   transition: color var(--tran-1), background-color var(--tran-1);
 
+  scrollbar-color: var(--color-light) #fff;
+  scrollbar-width: 2px;
+
   /* Убираум синюю заливку при нажатии на телефонах*/
   -webkit-tap-highlight-color: transparent;
 }
@@ -58,8 +61,8 @@
 
 ::-webkit-scrollbar {
   width: 3px;
+  height:  3px;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-light);
 }
@@ -215,6 +218,7 @@
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 36px;
   height: 36px;
   border-radius: 10px;
@@ -232,6 +236,10 @@
 
 .button_active {
   background-color: var(--bg-color-active);
+}
+.theme-btn-icon_active{
+  transform: rotate(180deg);
+  transition: transform var(--tran-1);
 }
 
 .button_danger {
@@ -268,6 +276,7 @@
   padding-top: 48px;
   margin-inline: auto;
   overflow: auto;
+  overflow-wrap: anywhere;
 }
 
 .note__title {
@@ -294,4 +303,11 @@
 
 .note__content:hover {
   background-color: var(--bg-color-accent);
+}
+
+@media(max-width: 600px){
+  .note {
+    width: max(100%, 320px);
+    padding-top: 20px;
+  }
 }

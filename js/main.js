@@ -5,9 +5,9 @@ import NotesUI from "./NotesUI.js"
 window.addEventListener("load", main);
 
 function main() {
-
-
   const themeBtn = document.getElementById("theme-btn");
+  const themeBtnIcon = document.getElementById("theme-btn-icon");
+
   const page = document.getElementById("page");
   const sidebar = document.getElementById("sidebar-wrapper");
   const menuBtn = document.getElementById("menu-btn");
@@ -21,6 +21,7 @@ function main() {
 
   themeBtn.addEventListener("click", ()=> {
     page.classList.toggle('page_dark');
+    themeBtnIcon.classList.toggle("theme-btn-icon_active");
   });
   
 
@@ -34,6 +35,7 @@ function main() {
     subMenuBtn.classList.toggle("button_active");
     subMenuBtnIcon.classList.toggle("main-menu-additional-btn-icon_active");
   });
+
 
 }
 
