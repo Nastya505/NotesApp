@@ -53,7 +53,7 @@ export default class NotesAPI {
           return i;
         }
       }
-      return undefined;
+    return undefined;
     }
 
     updateNote(noteToUpdate){

@@ -135,6 +135,7 @@
 
   cursor: pointer;
   transition: background-color var(--tran-1);
+  overflow: hidden;
 }
 
 .note-preview:hover {
@@ -236,6 +237,10 @@
 
 .button_active {
   background-color: var(--bg-color-active);
+}
+.theme-btn-icon{
+  transform: rotate(0deg);
+  transition: transform var(--tran-1);
 }
 .theme-btn-icon_active{
   transform: rotate(180deg);

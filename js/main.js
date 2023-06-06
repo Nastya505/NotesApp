@@ -15,6 +15,8 @@ function main() {
   const subMenuBtnIcon = document.getElementById("main-menu-additional-btn-icon");
   const subMenu = document.getElementById("main-menu-additional");
   const notesPreview = document.getElementById("notes-preview");
+  const deleteBtn = document.getElementById("btn-danger");
+  const note = document.getElementById("note");
 
   const notesData = new NotesAPI();
   const app = new NotesUI(notesData, page);
@@ -35,7 +37,5 @@ function main() {
     subMenuBtn.classList.toggle("button_active");
     subMenuBtnIcon.classList.toggle("main-menu-additional-btn-icon_active");
   });
-
-
 }
 

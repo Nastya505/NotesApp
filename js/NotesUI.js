@@ -3,7 +3,7 @@ export default class NotesUI {
   constructor(notesData, root) {
 
     this.notesData = notesData;
-    this.activeNoteId = this.notesData.getLastId() || 1;
+    this.activeNoteId = localStorage.getItem("activeNoteId");
     this.activeNote = {};
     this.root = root;
 
@@ -37,7 +37,7 @@ export default class NotesUI {
     });
 
     this.deleteBtn.addEventListener("click", () => {
-      this.deleteNote();
+     this.deleteNote();
     });
 
     this.noteTitle.addEventListener("input", (e) => {
@@ -106,7 +106,8 @@ export default class NotesUI {
 
     const notesList = this.root.querySelectorAll(".note-preview");
     notesList.forEach(noteBtn => {
-      noteBtn.addEventListener("click", () => {
+      noteBtn.addEventListener("click", (event) => {
+        event.preventDefault();
         this.noteBtnClick(noteBtn);
       });
     });
@@ -114,6 +115,7 @@ export default class NotesUI {
 
   noteBtnClick(button) {
     this.activeNoteId = button.dataset.noteId;
+    localStorage.setItem("activeNoteId", this.activeNoteId);
     this.renderListNotes();
     this.renderNote();
   }
@@ -131,22 +133,19 @@ export default class NotesUI {
   }
 
   deleteNote(){
-    const deletedNoteId = this.notesData.deleteNote(this.activeNoteId);
-    
-    this.noteContent.innerHTML = ``;
-    this.noteTitle.innerHTML = ``;
-    
-    this.renderListNotes();
+    let deleteNoteId = this.notesData.deleteNote(this.activeNoteId);
+   
+   
+    this.initUI();
   }
 
   updateNote() {
     const newNote = {
-      id: this.activeNoteId,
-      title: this.noteTitle.innerHTML,
-      body: this.noteContent.innerHTML,
-      updated: new Date()
+    id: this.activeNoteId,
+    title: this.noteTitle.innerHTML,
+    body: this.noteContent.innerHTML,
+    updated: new Date()
     }
-
     this.notesData.updateNote(newNote);
     this.renderListNotes();
   }
