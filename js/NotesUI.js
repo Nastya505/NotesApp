@@ -133,8 +133,10 @@ export default class NotesUI {
   }
 
   deleteNote(){
-    let deleteNoteId = this.notesData.deleteNote(this.activeNoteId);
-   
+    this.notesData.deleteNote(this.activeNoteId);
+    const nextNote = JSON.parse(localStorage.getItem("notesapp-notes")) || 0;
+    const nextNoteId = nextNote[0].id;
+    this.activeNoteId = nextNoteId;
    
     this.initUI();
   }
