@@ -134,7 +134,7 @@ export default class NotesUI {
 
   deleteNote(){
     this.notesData.deleteNote(this.activeNoteId);
-    const nextNote = JSON.parse(localStorage.getItem("notesapp-notes")) || 0;
+    const nextNote = JSON.parse(localStorage.getItem("notesapp-notes")) || 1;
     const nextNoteId = nextNote[0].id;
     this.activeNoteId = nextNoteId;
    
