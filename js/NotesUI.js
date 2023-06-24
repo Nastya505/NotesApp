@@ -3,7 +3,7 @@ export default class NotesUI {
   constructor(notesData, root) {
 
     this.notesData = notesData;
-    this.activeNoteId = localStorage.getItem("activeNoteId");
+    this.activeNoteId = localStorage.getItem("activeNoteId") || 1;
     this.activeNote = {};
     this.root = root;
 
